@@ -19,7 +19,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async signup(input: CreateUserDto) {
+  public async signup(input: CreateUserDto) {
     const candidate = await this.userService.getUserByEmail(input.email);
     const token = Math.floor(1000 + Math.random() * 9000).toString();
 
@@ -41,7 +41,7 @@ export class AuthService {
     return this.generateToken(user);
   }
 
-  async signin(input: CreateUserDto) {
+  public async signin(input: CreateUserDto) {
     const user = await this.validateUser(input);
     return this.generateToken(user);
   }
