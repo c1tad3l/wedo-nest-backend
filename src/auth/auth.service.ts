@@ -35,7 +35,6 @@ export class AuthService {
       token: token,
       password: hashPassword,
     });
-
     await this.mailService.sendUserConfirmation(user, token);
 
     return this.generateToken(user);
